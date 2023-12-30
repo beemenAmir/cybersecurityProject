@@ -104,7 +104,7 @@ class CICIDS2017Preprocessor(object):
             'Web Attack � Brute Force': 'Web Attack',
             'Web Attack � Sql Injection': 'Web Attack',
             'Web Attack � XSS': 'Web Attack',
-            'Infiltration': 'Infiltration'
+            'Infiltration': 'Web Attack'
         }
 
         # Create grouped label column
@@ -183,6 +183,10 @@ if __name__ == "__main__":
 
     # Create new label category
     cicids2017.group_labels()
+    num_unique_labels = cicids2017.data['label_category'].nunique()
+
+# Print the result
+    print("Number of unique labels:", num_unique_labels)
 
     # Split & Normalise data sets
     training_set, validation_set, testing_set            = cicids2017.train_valid_test_split()
